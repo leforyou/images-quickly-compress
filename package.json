@@ -1,6 +1,6 @@
 {
   "name": "images-quickly-compress",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Compress pictures with canvas!",
   "main": "index.js",
   "scripts": {
