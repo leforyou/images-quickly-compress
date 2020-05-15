@@ -1,5 +1,5 @@
 {
-  "name": "images-compress",
+  "name": "images-quickly-compress",
   "version": "1.0.0",
   "description": "Compress pictures with canvas!",
   "main": "index.js",
@@ -11,7 +11,11 @@
     "url": "git+https://github.com/leforyou/ImageCompress.git"
   },
   "keywords": [
-    "images-compress"
+    "images-quickly-compress",
+    "quickly-compress",
+    "images-compress",
+    "images",
+    "compress"
   ],
   "author": "leforyou",
   "license": "ISC",
