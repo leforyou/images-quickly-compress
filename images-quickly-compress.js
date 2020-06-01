@@ -30,7 +30,7 @@ export default class ImagesQuicklyCompress{//es6定义类
             canvasH = canvasW / ratio;//画面的宽高比必须等于被压缩图片的宽高比
             canvasW = Math.floor(canvasW);//向下取整
             canvasH = Math.floor(canvasH); //向下取整
-        }else if(pixel === 'width'){
+        }else if(mode === 'width'){
             canvasW = num;
             canvasH = canvasW / ratio;//画面的宽高比必须等于被压缩图片的宽高比
             canvasH = Math.floor(canvasH); //向下取整
