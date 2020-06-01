@@ -86,13 +86,17 @@ github地址：
 https://github.com/leforyou/images-quickly-compress
 
 bug反馈：
+
 https://github.com/leforyou/images-quickly-compress/issues
 
 
 
 技术参考文档：
+
 https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toBlob
+
 https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
+
 https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL
 
 
