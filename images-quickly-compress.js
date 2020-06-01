@@ -1,6 +1,6 @@
 //export default class ImagesQuicklyCompress
 export default class ImagesQuicklyCompress{//es6定义类
-    constructor(props){//constructor是一个构造方法，用来接收参数
+    constructor(props = {}){//constructor是一个构造方法，用来接收参数
         let {mode = 'pixel',num,size='500kb',imageType='image/jpeg',quality=0.8} = props;
         this.mode = mode;//pixel：固定像素压缩，width：固定宽度压缩
         this.num = mode == 'pixel'?(num || 1E6) : (num || 5E2);//设置默认值

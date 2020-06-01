@@ -46,13 +46,13 @@
 		<br/>
 		
 		<script type="module">
-			//注意：html如果要使用export/import的es6语法，需要在script标签止添加type="module"。如需体验demo,需要在开启http服务才能加载js。
+			//注意：html如果要使用export/import的es6语法，需要在script标签止添加type="module"。如需体验demo,需要在开启http服务访问html,才能加载js。
 			import ImagesQuicklyCompress from "./images-quickly-compress.js";
 			let imageCompress = new ImagesQuicklyCompress({
-				mode:'pixel',
-				num:1E6,
-				size:'500kb',
-				imageType:'image/jpeg', //jpeg压缩效果十分理想
+				mode:'pixel',//根据像素总大小压缩
+				num:1E6,//压缩后图片的总像素都是100万（相当于1000px * 1000px的图片）
+				size:'500kb',//图片大小超过500kb执行压缩
+				imageType:'image/png',//压缩率比较低
 				quality:0.8
 			});
 			document.querySelector('#imgFilesInput').addEventListener("change", function() {
