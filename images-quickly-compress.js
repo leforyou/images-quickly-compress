@@ -1,5 +1,5 @@
-//export default class ImageCompress
-export default class ImageCompress{//es6定义类
+//export default class ImagesQuicklyCompress
+export default class ImagesQuicklyCompress{//es6定义类
     constructor(props){//constructor是一个构造方法，用来接收参数
         let {mode = 'pixel',num,size='500kb',imageType='image/jpeg',quality=0.8} = props;
         this.mode = mode;//pixel：固定像素压缩，width：固定宽度压缩
@@ -94,45 +94,3 @@ export default class ImageCompress{//es6定义类
     }
     
 }
-/*
-import ImageCompress from  "ImageCompress.js";//导出：压缩图片插件
-let imageCompress = new ImageCompress({
-    mode:'pixel',
-    num:1E6,
-    size:'500kb',
-    imageType:'image/png',//压缩率比较低
-    quality:0.8
-});
-let imageCompress = new ImageCompress({
-    mode:'width',
-    num:500,
-    size:'500kb',
-    imageType:'image/jpeg', //jpeg压缩效果十分理想
-    quality:0.6
-});
-
-//注意：files是input的change事件获取的对象
-imageCompress.compressor(files).then(res=>{
-    console.log('压缩结果：',res);
-});
-
-
-
-标签:
-<input type="file" accept="image/*" id="imgFilesInput"/>
-<input id="fileBtn" type="file" capture="camera"/>
-
-js代码:
-document.getElementById("imgFilesInput").addEventListener("change", function() {
-    console.log(this.files); //this.files是一个数组
-}, false);
-
-
-
-
-参考文档：
-https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toBlob
-https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
-https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL
-
-*/
