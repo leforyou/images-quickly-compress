@@ -81,14 +81,6 @@ document.querySelector('#imgFilesInput').addEventListener("change", function() {
 
 
 
-npm:
-
-https://www.npmjs.com/package/images-quickly-compress
-
-github地址：
-
-https://github.com/leforyou/images-quickly-compress
-
 bug反馈：
 
 https://github.com/leforyou/images-quickly-compress/issues
