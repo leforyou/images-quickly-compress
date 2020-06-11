@@ -2,7 +2,7 @@
 利用canvas画布压缩图片(ES6语法)
 
 安装：
-npm i images-quickly-compress
+npm install images-quickly-compress --save
 
 使用：
 
