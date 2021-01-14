@@ -1,26 +1,27 @@
 {
-  "name": "images-quickly-compress",
-  "version": "1.0.7",
-  "description": "Compress pictures with canvas!",
-  "main": "images-quickly-compress.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leforyou/ImageCompress.git"
-  },
-  "keywords": [
-    "images-quickly-compress",
-    "quickly-compress",
-    "images-compress",
-    "images",
-    "compress"
-  ],
-  "author": "leforyou",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/leforyou/ImageCompress/issues"
-  },
-  "homepage": "https://github.com/leforyou/ImageCompress#readme"
+    "name": "images-quickly-compress",
+    "version": "1.0.7",
+    "description": "Compress pictures with canvas!",
+    "main": "images-quickly-compress.js",
+    "scripts": {
+        "pub": "npm publish",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leforyou/ImageCompress.git"
+    },
+    "keywords": [
+        "images-quickly-compress",
+        "quickly-compress",
+        "images-compress",
+        "images",
+        "compress"
+    ],
+    "author": "leforyou",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/leforyou/ImageCompress/issues"
+    },
+    "homepage": "https://github.com/leforyou/ImageCompress#readme"
 }
