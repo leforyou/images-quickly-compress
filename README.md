@@ -14,7 +14,8 @@ let imageCompress = new ImagesQuicklyCompress({
     num:1E6,//压缩后图片的总像素都是100万（相当于1000px * 1000px的图片）
     size:'500kb',//图片大小超过500kb执行压缩
     imageType:'image/jpeg',//jpeg压缩效果十分理想
-    quality:0.8
+    quality:0.8,
+    orientation:false,
 });
 
 //压缩方式二：
@@ -23,7 +24,8 @@ let imageCompress = new ImagesQuicklyCompress({
     num:500,//压缩后所有图片的宽度都是500px
     size:'500kb',//图片大小超过500k压缩率比较低b执行压缩
     imageType:'image/png', //压缩率比较低
-    quality:0.6
+    quality:0.6,
+    orientation:false,
 });
 
 //注意：files是input的change事件获取的对象
@@ -53,6 +55,7 @@ imageCompress.compressor(files).then(res=>{
 | size      | 对超过该值的图片进行压缩,单位是KB。                          | 否       | String/Number | '500kb'或500 |
 | imageType | 压缩后输入图片的格式：<br />image/jpeg 压缩率比较高，效果十分理想。<br />image/png 压缩率比较低。 | 否       | String        | 'image/jpeg' |
 | quality   | 压缩质量。数值越低压缩后的体积越小，但图片越模糊，建议使用0.8。 | 否       | Number        | 0.8          |
+| orientation   | android或ios拍照出来的图片可能会旋转90°/180°/270°,设置为true将图片处理 | 否       | Boolean        | false          |
 
 **Vue中使用方式：**
 
@@ -392,3 +395,5 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLCanvasElement/toBlob
 https://developer.mozilla.org/zh-CN/docs/Web/API/Blob
 
 https://developer.mozilla.org/zh-CN/docs/Web/API/URL/createObjectURL
+
+https://www.npmjs.com/package/exif-js
