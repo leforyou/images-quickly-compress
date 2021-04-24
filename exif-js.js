@@ -6,6 +6,8 @@ Github: https://github.com/exif-js/exif-js
 https://blog.csdn.net/linlzk/article/details/48652635/
 https://www.cnblogs.com/shihaiming/p/10755185.html
 
+注 :png是没 exif信息, 只有jpg、jpeg有exif信息
+
 */
 (function() {
 

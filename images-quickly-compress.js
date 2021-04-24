@@ -1,4 +1,5 @@
 import EXIF from './exif-js'; //利用exif-js解决手机上传竖拍照片旋转90/180/270度问题
+import { compareVersion, getIosVersion, platform } from './checkVersion';
 export default class ImagesQuicklyCompress { //es6定义类
     constructor(props = {}) { //constructor是一个构造方法，用来接收参数
         let { mode = 'pixel', num, size = '500kb', imageType = 'image/jpeg', quality = 0.8, orientation = false } = props;
@@ -55,15 +56,18 @@ export default class ImagesQuicklyCompress { //es6定义类
 
     createIamgeURL(files) {
         let PromiseArr = Array.from(files).map(file => {
-            return new Promise(async(resolve, reject) => {
+            return new Promise((resolve, reject) => {
                 let img = document.createElement('img');
                 img.src = window.URL.createObjectURL(file); //window.URL.createObjectURL(blob);二进制流图片也能显示
                 img.file = file; //保存file文件对象
                 img.name = file.name;
                 img.size = file.size;
                 img.type = file.type;
-                if (this.orientation) img.Orientation = await this.getImgOrientation(file);
-                img.onload = function() {
+                img.onload = async() => {
+                    if (this.orientation) {
+                        let Orientation = await this.getImgOrientation(file);
+                        img.setAttribute('Orientation', Orientation);
+                    }
                     window.URL.revokeObjectURL(this.src); //前面创建URL，现在要释放它，不让它再用据内存和消耗浏览的性能。它与定时器的生成、清除的原理一样。这里不能使用它，因为使用它后图片的src将变成唯一的，只能用一个img元素标签指向这个链接
                     resolve(img);
                 }
@@ -73,9 +77,16 @@ export default class ImagesQuicklyCompress { //es6定义类
     }
 
     rotateOrientation(canvas, ctx, img) {
-        if (this.orientation && [3, 6, 8].includes(img.Orientation)) {
+        let Orientation = Number(img.getAttribute('Orientation'));
+        if (platform.isIos) {
+            //IOS 13.4版本之后上传的图片Orientation值可能为3/6/8,但不需要做旋转处理
+            let version = getIosVersion();
+            let result = compareVersion(version, '13.4');
+            if (result >= 0) Orientation = 1;
+        }
+        if (this.orientation && [3, 6, 8].includes(Orientation)) {
             //旋转的图片
-            switch (img.Orientation) {
+            switch (Orientation) {
                 case 6: //需要顺时针（向左）90度旋转
                     this.setCanvasWidthHeight(img, 'left');
                     ctx.translate(canvas.width, 0);
@@ -134,7 +145,7 @@ export default class ImagesQuicklyCompress { //es6定义类
         return new Promise((resolve, reject) => {
             EXIF.getData(file, function() {
                 EXIF.getAllTags(this);
-                let Orientation = EXIF.getTag(this, 'Orientation');
+                let Orientation = EXIF.getTag(this, 'Orientation'); //jpg,jepg才有EXIF信息，png图片没有。
                 resolve(Orientation);
             });
         });
